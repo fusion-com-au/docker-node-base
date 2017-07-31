@@ -1,3 +1,13 @@
-FROM node:6
-RUN apt-get update && apt-get install -y libelf-dev 
-RUN npm install --global handlebars-cmd flow-bin@0.24.2
+FROM mhart/alpine-node:6
+
+RUN apk add --no-cache \
+  make \
+  nasm \
+  autoconf \
+  gcc \
+  g++ \
+  python \
+  git \
+  run-parts
+
+RUN npm install --global handlebars-cmd
